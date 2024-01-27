@@ -2,5 +2,10 @@
 
 ```sh
 docker build -f Dockerfile.dev --progress=plain .
-docker run -p 8080:5173 $container_id
+
+# Isolated source code
+docker run -p 8080:5173 $id
+
+# Mount volumes
+docker run -p 8080:5173 -v /app/node_modules -v $(pwd):/app $id
 ```
